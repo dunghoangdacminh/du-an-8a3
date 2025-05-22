@@ -14,7 +14,8 @@ import { useToast } from "@/hooks/use-toast"
 
 // Định nghĩa kiểu dữ liệu cho memory
 interface Memory {
-	id: number
+	_id?: string
+	id?: number
 	name: string
 	message: string
 	avatar: string
@@ -80,7 +81,7 @@ export default function MemoryBoardPage() {
 		setIsSubmitting(true)
 
 		try {
-			// Chuẩn bị dữ liệu để gửi
+			// Prepare data to send
 			const today = new Date()
 			const formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`
 
@@ -94,7 +95,7 @@ export default function MemoryBoardPage() {
 				date: formattedDate,
 			}
 
-			// Gửi dữ liệu đến API
+			// Send data to API
 			const response = await fetch("/api/memories", {
 				method: "POST",
 				headers: {
@@ -109,7 +110,7 @@ export default function MemoryBoardPage() {
 
 			const savedMemory = await response.json()
 
-			// Cập nhật state với memory mới
+			// Update state with new memory
 			setMemories([savedMemory, ...memories])
 			setNewMemory({ name: "", message: "" })
 
@@ -218,7 +219,7 @@ export default function MemoryBoardPage() {
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 								{memories.map((memory, index) => (
 									<motion.div
-										key={memory.id}
+										key={memory._id || memory.id || index}
 										initial={{ opacity: 0, y: 20 }}
 										animate={{ opacity: 1, y: 0 }}
 										transition={{ duration: 0.3, delay: index * 0.05 }}
