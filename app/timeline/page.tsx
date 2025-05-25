@@ -10,16 +10,9 @@ const defaultTimelineData = {
 	events: [
 		{
 			month: "Tháng 11",
-			title: "Ngày Nhà Giáo Việt Nam",
-			description: "Tổ chức văn nghệ và tặng hoa tri ân thầy cô giáo.",
-			image: "/placeholder.svg?height=400&width=600",
-		},
-		{
-			month: "Tháng 12",
-			title: "Kiểm Tra Học Kỳ I & Noel",
-			description:
-				"Tháng của những bài kiểm tra cuối kỳ I và không khí Giáng sinh.",
-			image: "/placeholder.svg?height=400&width=600",
+			title: "Sinh nhật cô giáo",
+			description: "Tổ chức sinh nhật cô giáo Nguyễn Thị Huyền",
+			image: "https://files.catbox.moe/osh0a9.jpg?height=600&width=800&text=Sinh+Nhật+Cô",
 		},
 		{
 			month: "Tháng 1-2",
@@ -36,10 +29,10 @@ const defaultTimelineData = {
 		},
 		{
 			month: "Tháng 4",
-			title: "Hoạt Động Ngoài Trời",
+			title: "Tham quan, dã ngoại tới K9 và Đảo Ngọc Xanh",
 			description:
-				"Lớp mình đã tham gia một chuyến dã ngoại ngắn để thư giãn trước khi bước vào giai đoạn ôn tập cuối năm.",
-			image: "/placeholder.svg?height=400&width=600",
+				"Lớp mình đã tham gia một chuyến dã ngoại để tìm hiểu lịch sử cũng như thư giãn sau một kỳ thi vất vả",
+			image: "https://files.catbox.moe/7e9jlo.jpg?height=400&width=600",
 		},
 	],
 };
