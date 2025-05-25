@@ -29,14 +29,14 @@ const classReps = [
 	{
 		name: "Chu Minh Thảo",
 		role: "Lớp trưởng",
-		avatar: "/placeholder.svg?height=200&width=200&text=MA",
+		avatar: "https://files.catbox.moe/7lbb26.png?height=200&width=200&text=MA",
 		description:
 			"Năng động, nhiệt tình và có trách nhiệm. Luôn đi đầu trong các hoạt động của lớp.",
 	},
 	{
 		name: "Nguyễn Ngọc Bích",
 		role: "Lớp phó học tập",
-		avatar: "/placeholder.svg?height=200&width=200&text=HN",
+		avatar: "https://files.catbox.moe/mlt3ra.png?height=200&width=200&text=HN",
 		description:
 			"Học giỏi, chăm chỉ và sẵn sàng giúp đỡ các bạn trong lớp với bài tập khó.",
 	},
@@ -53,7 +53,7 @@ const classReps = [
 const faqItems = [
 	{
 		question: "Lớp mình có bao nhiêu học sinh?",
-		answer: `Lớp 8A3 có tổng cộng ${classInfo.students} học sinh, trong đó có x nữ và y nam.`,
+		answer: `Lớp 8A3 có tổng cộng ${classInfo.students} học sinh, trong đó có 18 nữ và 28 nam.`,
 	},
 	{
 		question: "Ai là giáo viên chủ nhiệm?",
@@ -100,7 +100,7 @@ export default function AboutPage() {
 						<div className="grid grid-cols-1 md:grid-cols-2">
 							<div className="relative h-64 md:h-auto">
 								<Image
-									src="/placeholder.svg?height=600&width=800&text=Lớp+8A3"
+									src="https://files.catbox.moe/2jn4gy.jpg?height=600&width=800&text=Lớp+8A3"
 									alt="Lớp 8A3"
 									fill
 									className="object-cover"

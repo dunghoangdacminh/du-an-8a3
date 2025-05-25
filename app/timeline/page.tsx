@@ -23,9 +23,9 @@ const defaultTimelineData = {
 		},
 		{
 			month: "Tháng 1-2",
-			title: "Tết Nguyên Đán",
-			description: "Nghỉ Tết và đón năm mới cùng gia đình.",
-			image: "/placeholder.svg?height=400&width=600",
+			title: "Hội chợ xuân",
+			description: "Tổ chức hội chợ cho toàn trường",
+			image: "https://files.catbox.moe/hztpej.jpg?height=400&width=600",
 		},
 		{
 			month: "Tháng 3",

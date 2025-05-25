@@ -51,6 +51,18 @@ const photos = [
 		alt: "Ảnh chụp trong lớp",
 		category: "classroom",
 	},
+	{
+		id: 8,
+		src: "https://files.catbox.moe/8ys5vq.jpg?height=600&width=800&text=HBTA",
+		alt: "Hùng biện tiếng anh",
+		category: "school-events",
+	},
+	{
+		id: 9,
+		src: "https://files.catbox.moe/crtn09.jpg?height=600&width=800&text=VHĐ",
+		alt: "Ngày Sách và Văn hóa đọc Việt Nam",
+		category: "school-events",
+	},
 ];
 
 // Videos data
