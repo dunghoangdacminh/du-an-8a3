@@ -23,18 +23,19 @@ Trang web này là một món quà nhỏ để lưu giữ những kỷ niệm đ
 
 ## 🚀 Công nghệ sử dụng
 
-| Công nghệ       | Mục đích                         |
-|----------------|----------------------------------|
-| [Next.js](https://nextjs.org/)       | Framework React để xây dựng website |
-| [Tailwind CSS](https://tailwindcss.com/) | Thiết kế giao diện nhanh chóng và đẹp |
-| [Framer Motion](https://www.framer.com/motion/) | Hiệu ứng chuyển động mượt mà |
-| JSON            | Lưu trữ dữ liệu lớp học (timeline, học sinh, v.v.) |
+| Công nghệ                                       | Mục đích                                           |
+| ----------------------------------------------- | -------------------------------------------------- |
+| [Next.js](https://nextjs.org/)                  | Framework React để xây dựng website                |
+| [Tailwind CSS](https://tailwindcss.com/)        | Thiết kế giao diện nhanh chóng và đẹp              |
+| [Framer Motion](https://www.framer.com/motion/) | Hiệu ứng chuyển động mượt mà                       |
+| JSON                                            | Lưu trữ dữ liệu lớp học (timeline, học sinh, v.v.) |
 
 ---
 
 ## 📦 Cách cài đặt & chạy thử
 
 ### 👉 Yêu cầu:
+
 - Node.js >= 16
 
 ### ⚙️ Cài đặt:
@@ -44,8 +45,11 @@ git clone https://github.com/dunghoangdacminh/du-an-8a3.git
 cd du-an-8a3
 npm install
 ```
+
 ### ▶️ Chạy website:
+
 ```bash
 npm run dev
 ```
+
 Truy cập [http://localhost:3000](http://localhost:3000) để xem trang web.

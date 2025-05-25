@@ -25,9 +25,14 @@ const generateBalloons = () => {
 		id: `balloon-${i}`,
 		x: Math.random() * 100,
 		xOffset: Math.sin(i) * 50,
-		color: ["#FF5252", "#FFEB3B", "#4CAF50", "#2196F3", "#E040FB", "#FF9800"][
-			Math.floor(Math.random() * 6)
-		],
+		color: [
+			"#FF5252",
+			"#FFEB3B",
+			"#4CAF50",
+			"#2196F3",
+			"#E040FB",
+			"#FF9800",
+		][Math.floor(Math.random() * 6)],
 		duration: Math.random() * 20 + 15,
 		delay: Math.random() * 10,
 	}));
@@ -126,11 +131,12 @@ export default function CelebrationPage() {
 			<div className="min-h-screen bg-gradient-to-b from-blue-900 via-purple-900 to-pink-900 flex flex-col items-center justify-center p-4">
 				<div className="text-center">
 					<h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-						<span className="text-yellow-300">Chúc Mừng</span> Bế Giảng!
+						<span className="text-yellow-300">Chúc Mừng</span> Bế
+						Giảng!
 					</h1>
 					<p className="text-xl md:text-2xl mb-12 text-blue-100 max-w-2xl">
-						Hãy cùng nhau ăn mừng kết thúc một năm học tuyệt vời với những kỷ
-						niệm đáng nhớ!
+						Hãy cùng nhau ăn mừng kết thúc một năm học tuyệt vời với
+						những kỷ niệm đáng nhớ!
 					</p>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
 						<Button
@@ -203,8 +209,8 @@ export default function CelebrationPage() {
 					<span className="text-yellow-300">Chúc Mừng</span> Bế Giảng!
 				</h1>
 				<p className="text-xl md:text-2xl mb-12 text-blue-100 max-w-2xl">
-					Hãy cùng nhau ăn mừng kết thúc một năm học tuyệt vời với những kỷ niệm
-					đáng nhớ!
+					Hãy cùng nhau ăn mừng kết thúc một năm học tuyệt vời với
+					những kỷ niệm đáng nhớ!
 				</p>
 
 				{/* Hiển thị thông báo lỗi nếu có */}

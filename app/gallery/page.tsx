@@ -4,69 +4,52 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { X } from "lucide-react";
+import { X, Play } from "lucide-react";
+import VideoPlayer from "@/components/video-player";
 
 // Gallery data
 const photos = [
 	{
 		id: 1,
-		src: "/placeholder.svg?height=600&width=800&text=Khai+Giảng",
-		alt: "Lễ khai giảng",
-		category: "school-events",
+		src: "https://files.catbox.moe/0a7wcc.jpg?height=600&width=800&text=Thể+Thao",
+		alt: "Hoạt động thể thao",
+		category: "outdoor",
 	},
 	{
 		id: 2,
-		src: "/placeholder.svg?height=600&width=800&text=Văn+Nghệ",
-		alt: "Văn nghệ 20/11",
-		category: "school-events",
+		src: "https://files.catbox.moe/84suaj.jpg?height=600&width=800&text=Sinh+Nhật+Cô",
+		alt: "Tổ chức ngày Sinh Nhật cô",
+		category: "events",
 	},
 	{
 		id: 3,
-		src: "/placeholder.svg?height=600&width=800&text=Noel",
-		alt: "Tiệc Giáng sinh",
+		src: "https://files.catbox.moe/qdgx21.jpg?height=600&width=800&text=Tết",
+		alt: "Vui chơi hội xuân",
 		category: "celebrations",
 	},
 	{
 		id: 4,
-		src: "/placeholder.svg?height=600&width=800&text=Dã+Ngoại",
-		alt: "Dã ngoại lớp",
+		src: "https://files.catbox.moe/7e9jlo.jpg?height=600&width=800&text=Dã+Ngoại",
+		alt: "Tham quan, dã ngoại",
 		category: "outdoor",
 	},
 	{
 		id: 5,
-		src: "/placeholder.svg?height=600&width=800&text=Học+Nhóm",
-		alt: "Học nhóm",
+		src: "https://files.catbox.moe/99wecx.jpg?height=600&width=800&text=Lớp+Học",
+		alt: "Trong lớp học",
 		category: "classroom",
 	},
 	{
 		id: 6,
-		src: "/placeholder.svg?height=600&width=800&text=Thể+Thao",
+		src: "https://files.catbox.moe/fxf9nt.jpg?height=600&width=800&text=Thể+Thao",
 		alt: "Hoạt động thể thao",
 		category: "outdoor",
 	},
 	{
 		id: 7,
-		src: "/placeholder.svg?height=600&width=800&text=Sinh+Nhật",
-		alt: "Sinh nhật bạn trong lớp",
-		category: "celebrations",
-	},
-	{
-		id: 8,
-		src: "/placeholder.svg?height=600&width=800&text=Thi+Đấu",
-		alt: "Thi đấu thể thao",
-		category: "outdoor",
-	},
-	{
-		id: 9,
-		src: "/placeholder.svg?height=600&width=800&text=Lớp+Học",
-		alt: "Trong lớp học",
+		src: "https://files.catbox.moe/g0tglt.jpg?height=600&width=800&text=Ảnh+Dìm",
+		alt: "Ảnh chụp trong lớp",
 		category: "classroom",
-	},
-	{
-		id: 10,
-		src: "/placeholder.svg?height=600&width=800&text=Bế+Giảng",
-		alt: "Lễ bế giảng",
-		category: "school-events",
 	},
 ];
 
@@ -74,21 +57,35 @@ const photos = [
 const videos = [
 	{
 		id: 1,
-		thumbnail: "/placeholder.svg?height=600&width=800&text=Video+Văn+Nghệ",
-		title: "Tiết mục văn nghệ 20/11",
+		thumbnail:
+			"https://files.catbox.moe/jki3q0.jpg?height=600&width=800&text=Video+8+thg+3",
+		title: "Tiết mục chào mừng 8/3",
 		category: "school-events",
+		videoUrl: "https://files.catbox.moe/o246eq.mp4",
 	},
 	{
 		id: 2,
-		thumbnail: "/placeholder.svg?height=600&width=800&text=Video+Dã+Ngoại",
-		title: "Chuyến dã ngoại lớp",
+		thumbnail:
+			"https://files.catbox.moe/ciiohg.png?height=600&width=800&text=Video+Thể+Thao",
+		title: "Hoạt động thể thao",
 		category: "outdoor",
+		videoUrl: "https://files.catbox.moe/loet1m.mp4",
+	},
+	{
+		id: 3,
+		thumbnail:
+			"https://files.catbox.moe/blnxj1.png?height=600&width=800&text=Video+HeoBai",
+		title: "Tham quan, dã ngoại",
+		category: "outdoor",
+		videoUrl: "https://files.catbox.moe/3o32xi.mp4",
 	},
 ];
 
 export default function GalleryPage() {
 	const [selectedImage, setSelectedImage] = useState<number | null>(null);
 	const [activeTab, setActiveTab] = useState("photos");
+	const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
 	const openLightbox = (id: number) => {
 		setSelectedImage(id);
@@ -100,7 +97,20 @@ export default function GalleryPage() {
 		document.body.style.overflow = "auto";
 	};
 
+	const openVideoModal = (id: number) => {
+		setSelectedVideo(id);
+		setIsVideoModalOpen(true);
+		document.body.style.overflow = "hidden";
+	};
+
+	const closeVideoModal = () => {
+		setSelectedVideo(null);
+		setIsVideoModalOpen(false);
+		document.body.style.overflow = "auto";
+	};
+
 	const currentPhoto = photos.find((photo) => photo.id === selectedImage);
+	const currentVideo = videos.find((video) => video.id === selectedVideo);
 
 	return (
 		<div className="bg-white dark:bg-slate-900 min-h-screen py-12">
@@ -139,7 +149,10 @@ export default function GalleryPage() {
 									key={photo.id}
 									initial={{ opacity: 0, scale: 0.9 }}
 									animate={{ opacity: 1, scale: 1 }}
-									transition={{ duration: 0.3, delay: index * 0.05 }}
+									transition={{
+										duration: 0.3,
+										delay: index * 0.05,
+									}}
 									className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-md cursor-pointer group"
 									onClick={() => openLightbox(photo.id)}
 								>
@@ -151,7 +164,9 @@ export default function GalleryPage() {
 									/>
 									<div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-end">
 										<div className="p-4 w-full text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-											<p className="font-medium">{photo.alt}</p>
+											<p className="font-medium">
+												{photo.alt}
+											</p>
 										</div>
 									</div>
 								</motion.div>
@@ -160,30 +175,40 @@ export default function GalleryPage() {
 					</TabsContent>
 
 					<TabsContent value="videos" className="mt-6">
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 							{videos.map((video, index) => (
 								<motion.div
 									key={video.id}
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 0.3, delay: index * 0.1 }}
-									className="bg-blue-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-md"
+									transition={{
+										duration: 0.3,
+										delay: index * 0.1,
+									}}
+									className="bg-blue-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-md cursor-pointer group"
+									onClick={() => openVideoModal(video.id)}
 								>
 									<div className="relative aspect-video">
 										<Image
-											src={video.thumbnail || "/placeholder.svg"}
+											src={
+												video.thumbnail ||
+												"/placeholder.svg"
+											}
 											alt={video.title}
 											fill
-											className="object-cover"
+											className="object-cover group-hover:scale-105 transition-transform duration-300"
 										/>
-										<div className="absolute inset-0 flex items-center justify-center">
-											<div className="w-16 h-16 rounded-full bg-white bg-opacity-80 flex items-center justify-center">
-												<div className="w-0 h-0 border-t-8 border-t-transparent border-l-16 border-l-blue-600 border-b-8 border-b-transparent ml-1"></div>
+										<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300">
+											<div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300 shadow-lg">
+												<Play
+													className="w-6 h-6 text-blue-600 ml-0.5"
+													fill="currentColor"
+												/>
 											</div>
 										</div>
 									</div>
 									<div className="p-4">
-										<h3 className="text-lg font-bold text-slate-900 dark:text-white">
+										<h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
 											{video.title}
 										</h3>
 										<p className="text-slate-600 dark:text-slate-300 mt-2">
@@ -215,7 +240,10 @@ export default function GalleryPage() {
 							>
 								<div className="relative w-full h-auto aspect-[4/3]">
 									<Image
-										src={currentPhoto.src || "/placeholder.svg"}
+										src={
+											currentPhoto.src ||
+											"/placeholder.svg"
+										}
 										alt={currentPhoto.alt}
 										fill
 										className="object-contain"
@@ -228,8 +256,45 @@ export default function GalleryPage() {
 									<X className="w-6 h-6" />
 								</button>
 								<div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
-									<p className="text-lg font-medium">{currentPhoto.alt}</p>
+									<p className="text-lg font-medium">
+										{currentPhoto.alt}
+									</p>
 								</div>
+							</motion.div>
+						</motion.div>
+					)}
+				</AnimatePresence>
+
+				{/* Video Modal */}
+				<AnimatePresence>
+					{isVideoModalOpen && selectedVideo && currentVideo && (
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4"
+							onClick={closeVideoModal}
+						>
+							<motion.div
+								initial={{ scale: 0.9 }}
+								animate={{ scale: 1 }}
+								exit={{ scale: 0.9 }}
+								className="relative max-w-6xl max-h-[90vh] w-full"
+								onClick={(e) => e.stopPropagation()}
+							>
+								<VideoPlayer
+									src={currentVideo.videoUrl}
+									title={currentVideo.title}
+									poster={currentVideo.thumbnail}
+									autoPlay={true}
+									className="w-full aspect-video"
+								/>
+								<button
+									className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black bg-opacity-50 flex items-center justify-center text-white hover:bg-opacity-70 transition-colors duration-200 z-10"
+									onClick={closeVideoModal}
+								>
+									<X className="w-6 h-6" />
+								</button>
 							</motion.div>
 						</motion.div>
 					)}
