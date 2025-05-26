@@ -14,7 +14,6 @@ Trang web này là một món quà nhỏ để lưu giữ những kỷ niệm đ
 
 - 📆 **Timeline hành trình học tập**: Hiển thị các cột mốc theo từng tháng.
 - 🖼️ **Thư viện ảnh kỷ niệm**: Nơi lưu giữ những khoảnh khắc đáng nhớ.
-- 🧑‍🤝‍🧑 **Danh sách thành viên lớp**: Giới thiệu từng bạn học sinh (tên, biệt danh, ảnh).
 - 🙏 **Lời cảm ơn**: Tri ân thầy cô và người đồng hành.
 - 🌙 **Giao diện đẹp, responsive**: Hiển thị tốt cả trên điện thoại và máy tính.
 - 🎨 **Hiệu ứng nhẹ nhàng**: Sử dụng Framer Motion và Tailwind CSS.
